@@ -29,6 +29,40 @@ Review the flow of execution through the program [Zippo.java](src/Zippo.java), a
 3. What is the value of the parameter `blimp` when `baffle` gets invoked?
 4. What is the output of this program?
 
+   public class Zippo {
+    public static void baffle(String blimp) { //2
+        System.out.println(blimp); //3
+      //1, it's started here
+        zippo("ping", -5); //4
+    } //5
+    public static void zippo(String quince, int flag) { //6
+        if (flag < 0) { //7
+            System.out.println(quince + " zoop"); //8
+        } //9
+        //This is where 1 is executed
+        else { //10
+            System.out.println("ik"); //11
+            baffle(quince); //12
+            System.out.println("boo-wa-ha-ha"); //13
+        } //14
+    } //15
+
+    public static void main(String[] args) {
+        zippo("rattle", 13);
+    } //16
+} //17
+
+/*
+3. What is the value of the parameter blimp when baffle gets invoked?
+    ping. When baffle is "invoked", blimp holds the value ping
+4.  What is the output of this program?
+    ik
+    rattle
+    ping zoop
+    boo-wa-ha-ha
+    */
+
+
 ---
 
 ## Part 3: Stack Diagram and Program Output
@@ -39,6 +73,11 @@ Answer questions about stack diagrams and program output without running the pro
 **Questions:**
 1. Draw a stack diagram that shows the state of the program the first time `ping` is invoked.
     * Hint: If you Google how to use IntelliJ's **BreakPoint** functionality, you can screenshot the **program state** instead of drawing it.
+    * baffle:9, Zoop
+zoop:3, Zoop
+main:23, Zoop
+![image](https://github.com/THartmanOfTheRedwoods/Java-Lab-004/assets/92554780/b05019e7-2b2c-43d5-b3a8-2bb9a36c8288)
+
     * Regardless of your methodology, a picture of the programs state should be added to this Repo and committed.
 2. What is the output by the following program?
     * Paste your output in the bash code-block below.
@@ -55,7 +94,12 @@ Explore method invocations and their consequences.
 
 **Questions to answer in the README.md via Markdown:**
 1. What happens if you invoke a value method and don’t do anything with the result; that is, if you don’t assign it to a variable or use it as part of a larger expression?
+
+   It could still execute the code, it wouldn't have an impact on the program.  
+   
 2. What happens if you use a void method as part of an expression? For example, try `System.out.println("boo!") + 7;`.
+
+   You'll have an error, becuase you are voiding the vaule that can be used. Void methods can't run methods in experssions.
 
 ---
 
@@ -67,11 +111,19 @@ Draw a stack diagram that shows the state of the program the second time `zoop` 
 **Questions:**
 1. Draw a stack diagram that shows the state of the program the second time `zoop` is invoked.
     * Hint: If you Google how to use IntelliJ's **BreakPoint** functionality, you can screenshot the **program state** instead of drawing it.
+    * zoop:3, Part5
+main:20, Part5
+    *![image](https://github.com/THartmanOfTheRedwoods/Java-Lab-004/assets/92554780/4d8462c7-38d1-4f11-b963-4596f88a667a)
+    * zoop:3, Part5
+main:20, Part5
     * Regardless of your methodology, a picture of the programs state should be added to this Repo and committed.
 2. What is the complete output?
     * Paste your output in the bash code-block below.
 ```bash
-
+just for
+any not more 
+It's breakfast 
+!
 ```
 
 ## Submission
